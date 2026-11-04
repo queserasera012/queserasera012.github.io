@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>queserasera（ケセラセラ）</title>
-<meta name="description" content="queserasera（ケセラセラ）のアプリとLINEスタンプ。まなびクエスト・モコのからくり工房・Tiny Island Life・Bounce Pets・アルクエスト・Diner Street。">
-<meta property="og:title" content="queserasera（ケセラセラ）">
-<meta property="og:description" content="家族のそばで作っている、小さなアプリとLINEスタンプ。">
+<title>ケセラセラ｜パパが作るゲームとアプリ</title>
+<meta name="description" content="ケセラセラ（queserasera）のアプリとLINEスタンプ。まなびクエスト・モコのからくり工房・Tiny Island Life・Bounce Pets・アルクエスト・Diner Street。">
+<meta property="og:title" content="ケセラセラ｜パパが作るゲームとアプリ">
+<meta property="og:description" content="パパが作る ゲームとアプリ、LINE スタンプ。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://queserasera012.github.io/">
-<meta property="og:image" content="https://queserasera012.github.io/img/tiny-ja-1.jpg">
+<meta property="og:image" content="https://queserasera012.github.io/images/sns-icons/header/note-header.png">
 <!-- Google tag (gtag.js) -->
 <script>
 // ?from=ig などで来たときは、Google アナリティクスの「参照元」に出るよう utm を足す（URL の見た目だけ・再読み込みしない）
@@ -29,24 +29,27 @@
   gtag('js', new Date());
   gtag('config', 'G-V8BY8KNTW8');
 </script>
-<link rel="icon" href="img/karakuri-icon.png">
+<link rel="icon" href="img/sera-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#4FB8E8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#fbf6ec; --paper:#fffdf8; --ink:#3a2f26; --sub:#7a6a5c; --line:#eadfcd;
-  --accent:#e8743b; --accent-ink:#fff; --chip:#f3e9d8; --shadow:0 2px 0 #eadfcd, 0 10px 24px -14px rgba(90,60,30,.35);
+  --sky:#4FB8E8; --navy:#1F2A44; --cream:#FFFDF6;
+  --bg:#EAF6FC; --paper:#FFFDF6; --ink:#1F2A44; --sub:#56627a; --line:#1F2A44;
+  --accent:#4FB8E8; --chip:#e3f1f9; --shadow:0 5px 0 #1F2A44;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#15120f; --paper:#2f2822; --ink:#f3ebe0; --sub:#c2b29f; --line:#54493d;
-    --accent:#f08a4f; --chip:#40372d; --shadow:inset 0 1px 0 rgba(255,240,220,.08), 0 2px 0 #0b0907, 0 14px 28px -12px rgba(0,0,0,.8);
+    --bg:#121a2c; --paper:#25324f; --ink:#f4f6fb; --sub:#b4c0d6; --line:#7d93bd;
+    --accent:#5cc2ef; --chip:#33426a; --shadow:0 5px 0 #070b14;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#15120f; --paper:#2f2822; --ink:#f3ebe0; --sub:#c2b29f; --line:#54493d;
-  --accent:#f08a4f; --chip:#40372d; --shadow:inset 0 1px 0 rgba(255,240,220,.08), 0 2px 0 #0b0907, 0 14px 28px -12px rgba(0,0,0,.8);
+  --bg:#121a2c; --paper:#25324f; --ink:#f4f6fb; --sub:#b4c0d6; --line:#7d93bd;
+  --accent:#5cc2ef; --chip:#33426a; --shadow:0 5px 0 #070b14;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -59,34 +62,44 @@ img{display:block;max-width:100%}
 .bar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .bar .wrap{display:flex;align-items:center;gap:12px;height:56px}
 .logo{font-weight:900;font-size:18px;text-decoration:none;display:flex;align-items:center;gap:8px}
-.logo i{width:26px;height:26px;border-radius:8px;background:var(--accent);display:grid;place-items:center;color:#fff;font-style:normal;font-size:14px}
+.logo img{width:30px;height:30px;border-radius:9px;border:2px solid var(--navy)}
 .nav{margin-left:auto;display:flex;gap:4px;align-items:center}
 .nav a{font-size:14px;text-decoration:none;padding:6px 10px;border-radius:999px;color:var(--sub)}
 .nav a:hover{background:var(--chip);color:var(--ink)}
-.lang{display:flex;border:1.5px solid var(--line);border-radius:999px;overflow:hidden;margin-left:4px}
+.lang{display:flex;border:2px solid var(--line);border-radius:999px;overflow:hidden;margin-left:4px}
 .lang button{font:inherit;font-size:13px;font-weight:700;border:0;background:none;color:var(--sub);padding:4px 10px;cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 @media (max-width:560px){.nav a{display:none}}
 
 /* はじめ */
-.hero{padding-block:56px 32px;text-align:center}
-.hero h1{font-size:clamp(34px,8vw,56px);font-weight:900;margin:0;letter-spacing:.04em;line-height:1.2}
-.hero h1 small{display:block;font-size:14px;letter-spacing:.3em;color:var(--sub);font-weight:700;margin-top:6px}
-.hero p{max-width:34em;margin:20px auto 0;color:var(--sub);font-size:16px}
-.icons{display:flex;justify-content:center;gap:10px;margin-top:28px;flex-wrap:wrap}
-.icons a{width:58px;height:58px;border-radius:15px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 75% 35%,#7FD0F2 0,#4FB8E8 55%,#3FA6D9 100%);border-bottom:4px solid var(--navy)}
+.hero .dot{position:absolute;border-radius:50%;background:#fff;opacity:.18;pointer-events:none}
+.hero .blk{position:absolute;border-radius:22%;border:3px solid var(--navy);pointer-events:none}
+.hero-in{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;padding-block:44px 40px}
+.hero h1{font-size:clamp(46px,11vw,84px);font-weight:900;margin:0;letter-spacing:.04em;line-height:1.05;color:var(--navy);text-shadow:0 4px 0 rgba(255,255,255,.55)}
+.hero .catch{font-size:clamp(20px,4.6vw,30px);font-weight:900;color:#fff;margin:12px 0 0;text-shadow:0 3px 0 rgba(31,42,68,.35);line-height:1.4}
+.hero .desc{max-width:30em;margin:14px 0 0;color:var(--navy);font-size:15px;font-weight:700}
+.sera{position:relative;width:min(34vw,280px);aspect-ratio:540/690}
+.sera img{position:absolute}
+.sera .big{left:0;top:0;width:78%}
+.sera .small{right:0;bottom:2%;width:40%}
+@media (max-width:620px){.icons{gap:7px}.icons a{width:48px;height:48px;border-radius:13px}.hero-in{grid-template-columns:1fr;text-align:center;padding-block:28px 32px}.sera{order:-1;margin:0 auto;width:190px}.hero .desc{margin-inline:auto}.icons{justify-content:center}}
+.icons{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.icons a{width:56px;height:56px;border-radius:15px;overflow:hidden;border:3px solid #fff;box-shadow:0 4px 0 rgba(31,42,68,.3);transition:transform .15s}
 .icons a:hover{transform:translateY(-3px) rotate(-2deg)}
 
 /* 見出し */
 .sec{padding-block:40px 8px}
 .sec h2{font-size:24px;font-weight:900;margin:0 0 4px;display:flex;align-items:center;gap:10px}
-.sec h2::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.sec h2::before{content:"";width:16px;height:16px;border-radius:4px;background:#FFD23F;border:2.5px solid var(--navy);transform:rotate(-10deg);flex:none}
+.sec:nth-of-type(3n) h2::before{background:#FF6B6B}
+.sec:nth-of-type(3n+1) h2::before{background:#3DDC97}
 .sec .lead{color:var(--sub);margin:0 0 20px;font-size:15px}
 
 /* アプリの札 */
-.app{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:20px;margin-bottom:20px;box-shadow:var(--shadow);--c:var(--accent)}
+.app{background:var(--paper);border:3px solid var(--line);border-radius:24px;padding:20px;margin-bottom:20px;box-shadow:var(--shadow);--c:var(--accent)}
 .app-head{display:flex;gap:16px;align-items:flex-start}
-.app-head img{width:76px;height:76px;border-radius:18px;flex:none;box-shadow:0 1px 0 var(--line)}
+.app-head img{width:76px;height:76px;border-radius:18px;flex:none;border:2px solid var(--line)}
 .app-head h3{margin:0;font-size:21px;font-weight:900;line-height:1.35}
 .h3sub{font-size:14px;color:var(--sub);font-weight:700}
 html[lang="ja"] .h3sub[data-ja],html[lang="en"] .h3sub[data-en]{display:block}
@@ -97,30 +110,31 @@ html[lang="ja"] .h3sub[data-ja],html[lang="en"] .h3sub[data-en]{display:block}
 .points{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:4px;font-size:14px;color:var(--sub)}
 .points li::before{content:"●";color:var(--c);font-size:10px;margin-right:8px;vertical-align:2px}
 .shots{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:16px -20px 0;padding:4px 20px 10px;scrollbar-width:thin}
-.shots>*{flex:none;width:150px;scroll-snap-align:start;border-radius:14px;overflow:hidden;background:var(--chip);border:1px solid var(--line)}
+.shots>*{flex:none;width:150px;scroll-snap-align:start;border-radius:14px;overflow:hidden;background:var(--chip);border:2px solid var(--line)}
 .shots img{width:150px;height:auto;aspect-ratio:480/1042;object-fit:cover}
 .shots video{width:150px;height:auto;aspect-ratio:480/1042;object-fit:cover;display:block;background:#000}
 .shots .vid{position:relative}
 .shots .vid span{position:absolute;left:8px;top:8px;font-size:11px;font-weight:700;background:rgba(0,0,0,.6);color:#fff;border-radius:999px;padding:1px 8px;pointer-events:none}
 @media (min-width:720px){.shots>*,.shots img,.shots video{width:180px}}
 .actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
-.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;background:var(--ink);color:var(--bg);border:0}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;background:var(--navy);color:#fff;border:2.5px solid var(--navy);box-shadow:0 3px 0 rgba(31,42,68,.35)}
+html .btn:not(.ghost):not(.soon){background:var(--sky);color:var(--navy);border-color:var(--navy)}
 .btn svg{width:16px;height:16px;fill:currentColor}
-.btn.ghost{background:none;color:var(--ink);border:1.5px solid var(--line)}
+.btn.ghost{background:var(--paper);color:var(--ink);border:2.5px solid var(--line)}
 .btn.soon{background:var(--chip);color:var(--sub);cursor:default}
 .note{font-size:12px;color:var(--sub)}
 
 /* スタンプ */
 .stickers{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
-.st{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:12px;text-decoration:none;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow);transition:transform .15s}
+.st{background:var(--paper);border:3px solid var(--line);border-radius:18px;padding:12px;text-decoration:none;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow);transition:transform .15s}
 .st:hover{transform:translateY(-3px)}
 .st img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:#fff8ee;border-radius:12px;padding:6px}
 .st b{font-size:13px;line-height:1.45;font-weight:700}
-.st .new{font-size:11px;font-weight:900;color:#fff;background:var(--accent);border-radius:999px;padding:0 8px;align-self:flex-start}
+.st .new{font-size:11px;font-weight:900;color:var(--navy);background:#FFD23F;border-radius:999px;padding:0 8px;align-self:flex-start}
 
 /* つながる */
 .follow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 18px;text-decoration:none;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow)}
+.card{background:var(--paper);border:3px solid var(--line);border-radius:18px;padding:16px 18px;text-decoration:none;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow)}
 .card .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--ink);color:var(--bg);flex:none}
 .card .ic svg{width:22px;height:22px;fill:currentColor}
 .card b{display:block;font-size:16px}
@@ -138,7 +152,7 @@ html[lang="en"] [data-en]{display:revert}
 
 <header class="bar">
   <div class="wrap">
-    <a class="logo" href="#top"><i>q</i><span>queserasera</span></a>
+    <a class="logo" href="#top"><img src="img/sera-icon.svg" alt="" width="30" height="30"><span data-ja>ケセラセラ</span><span data-en>Queserasera</span></a>
     <nav class="nav">
       <a href="#apps"><span data-ja>アプリ</span><span data-en>Apps</span></a>
       <a href="#stickers"><span data-ja>スタンプ</span><span data-en>Stickers</span></a>
@@ -152,17 +166,31 @@ html[lang="en"] [data-en]{display:revert}
 </header>
 
 <main id="top">
-<section class="hero wrap">
-  <h1>queserasera<small>ケ セ ラ セ ラ</small></h1>
-  <p data-ja>家族のそばで、小さなアプリと LINE スタンプを作っています。<br>子どもと いっしょに遊べるものから、大人が ひと息つけるゲームまで。</p>
-  <p data-en>Small apps and LINE stickers, made in Japan —<br>from learning games for kids to cozy games for grown-ups.</p>
-  <div class="icons">
-    <a href="#manabi" aria-label="まなびクエスト / Manabi Quest"><img src="img/manabi-icon.png" alt="" width="64" height="64"></a>
-    <a href="#karakuri" aria-label="モコのからくり工房"><img src="img/karakuri-icon.png" alt="" width="64" height="64"></a>
-    <a href="#tiny" aria-label="Tiny Island Life"><img src="img/tiny-icon.png" alt="" width="64" height="64"></a>
-    <a href="#bounce" aria-label="Bounce Pets"><img src="img/bounce-icon.png" alt="" width="64" height="64"></a>
-    <a href="#aruquest" aria-label="アルクエスト"><img src="img/aruquest-icon.png" alt="" width="64" height="64"></a>
-    <a href="#diner" aria-label="Diner Street"><img src="img/diner-icon.png" alt="" width="64" height="64"></a>
+<section class="hero">
+  <div class="dot" style="left:-80px;top:-60px;width:260px;height:260px"></div>
+  <div class="dot" style="right:-60px;top:-90px;width:240px;height:240px"></div>
+  <div class="dot" style="left:45%;bottom:-160px;width:320px;height:320px"></div>
+  <div class="blk" style="left:6%;top:18px;width:26px;height:26px;background:#FFD23F;transform:rotate(-12deg)"></div>
+  <div class="blk" style="left:52%;top:26px;width:20px;height:20px;background:#3DDC97;transform:rotate(20deg)"></div>
+  <div class="blk" style="left:3%;bottom:22px;width:22px;height:22px;background:#FF6B6B;transform:rotate(-8deg)"></div>
+  <div class="blk" style="right:4%;bottom:18px;width:24px;height:24px;background:#FFD23F;transform:rotate(10deg)"></div>
+  <div class="wrap hero-in">
+    <div>
+      <h1><span data-ja>ケセラセラ</span><span data-en>Queserasera</span></h1>
+      <p class="catch" data-ja>パパが作る ゲームとアプリ</p>
+      <p class="catch" data-en>Games and apps, made by a dad</p>
+      <p class="desc" data-ja>子どもと いっしょに遊べる知育アプリから、大人が ひと息つけるゲーム、LINE スタンプまで。</p>
+      <p class="desc" data-en>Learning apps to play with your kids, cozy games for grown-ups, and LINE stickers.</p>
+    <div class="icons">
+      <a href="#manabi" aria-label="まなびクエスト / Manabi Quest"><img src="img/manabi-icon.png" alt="" width="64" height="64"></a>
+      <a href="#karakuri" aria-label="モコのからくり工房"><img src="img/karakuri-icon.png" alt="" width="64" height="64"></a>
+      <a href="#tiny" aria-label="Tiny Island Life"><img src="img/tiny-icon.png" alt="" width="64" height="64"></a>
+      <a href="#bounce" aria-label="Bounce Pets"><img src="img/bounce-icon.png" alt="" width="64" height="64"></a>
+      <a href="#aruquest" aria-label="アルクエスト"><img src="img/aruquest-icon.png" alt="" width="64" height="64"></a>
+      <a href="#diner" aria-label="Diner Street"><img src="img/diner-icon.png" alt="" width="64" height="64"></a>
+    </div>
+    </div>
+    <div class="sera" aria-hidden="true"><img class="big" src="img/sera.svg" alt=""><img class="small" src="img/small.svg" alt=""></div>
   </div>
 </section>
 
@@ -315,7 +343,7 @@ html[lang="en"] [data-en]{display:revert}
     <a href="https://queserasera012.github.io/images/aruquest/privacy.html"><span data-ja>アルクエスト</span><span data-en>AruQuest</span> Privacy</a>
     <a href="https://queserasera012.github.io/images/diner/privacy.html">Diner Street Privacy</a>
   </div>
-  © 2026 queserasera
+  © 2026 ケセラセラ (queserasera)
 </footer>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="apple" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></symbol></svg>
