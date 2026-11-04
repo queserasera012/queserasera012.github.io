@@ -10,6 +10,25 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://queserasera012.github.io/">
 <meta property="og:image" content="https://queserasera012.github.io/img/tiny-ja-1.jpg">
+<!-- Google tag (gtag.js) -->
+<script>
+// ?from=ig などで来たときは、Google アナリティクスの「参照元」に出るよう utm を足す（URL の見た目だけ・再読み込みしない）
+(function () {
+  var q = new URLSearchParams(location.search), f = (q.get('from') || '').toLowerCase();
+  var MAP = { ig: 'instagram', tt: 'tiktok', x: 'x', note: 'note', yt: 'youtube' };
+  if (f && !q.get('utm_source')) {
+    q.set('utm_source', MAP[f] || f); q.set('utm_medium', 'social'); q.set('utm_campaign', 'profile');
+    history.replaceState(null, '', location.pathname + '?' + q.toString() + location.hash);
+  }
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V8BY8KNTW8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V8BY8KNTW8');
+</script>
 <link rel="icon" href="img/karakuri-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -355,6 +374,13 @@ function campaign() {
   from = (from || '').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 20);
   return from ? 'lp-' + from : 'lp';
 }
+// App Store ボタンを押したら、どのアプリかを Google アナリティクスに送る
+document.addEventListener('click', e => {
+  const a = e.target.closest && e.target.closest('a[href*="apps.apple.com"]');
+  if (!a || typeof gtag !== 'function') return;
+  const app = (a.closest('article') || {}).id || 'other';
+  gtag('event', 'store_click', { app: app, lang: document.documentElement.lang, transport_type: 'beacon' });
+});
 function tagStoreLinks() {
   const ct = campaign();
   document.querySelectorAll('a[href*="apps.apple.com"]').forEach(a => {
