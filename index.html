@@ -52,7 +52,8 @@
   --accent:#5cc2ef; --chip:#33426a; --shadow:0 5px 0 #070b14;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:72px;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Maru Gothic",system-ui,-apple-system,"Hiragino Maru Gothic ProN",sans-serif;font-weight:500;line-height:1.75}
 a{color:inherit}
 img{display:block;max-width:100%}
