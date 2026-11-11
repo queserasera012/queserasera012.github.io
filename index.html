@@ -15,7 +15,7 @@
 // ?from=ig などで来たときは、Google アナリティクスの「参照元」に出るよう utm を足す（URL の見た目だけ・再読み込みしない）
 (function () {
   var q = new URLSearchParams(location.search), f = (q.get('from') || '').toLowerCase();
-  var MAP = { ig: 'instagram', tt: 'tiktok', x: 'x', note: 'note', yt: 'youtube' };
+  var MAP = { ig: 'instagram', tt: 'tiktok', x: 'x', note: 'note', yt: 'youtube', th: 'threads' };
   if (f && !q.get('utm_source')) {
     q.set('utm_source', MAP[f] || f); q.set('utm_medium', 'social'); q.set('utm_campaign', 'profile');
     history.replaceState(null, '', location.pathname + '?' + q.toString() + location.hash);
