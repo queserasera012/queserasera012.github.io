@@ -168,6 +168,15 @@ footer .links{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;ma
 .card div>span{display:none!important}
 #follow .lead{font-size:13px}
 
+/* 区切りごとの帯の色 */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sec{--tp:13%;--tb:var(--bg)}}
+:root[data-theme="dark"] .sec{--tp:13%;--tb:var(--bg)}
+#apps{--band:#FFD23F}#stickers{--band:#3DDC97}#follow{--band:#FF6B6B}
+.sec{--tint:color-mix(in srgb,var(--band) var(--tp,22%),var(--tb,#fff));border-image:conic-gradient(var(--tint) 0 0) fill 0//0 100vmax;padding-block:28px 32px;position:relative}
+.sec+.sec{border-image:linear-gradient(var(--navy) 0 3px,var(--tint) 3px) fill 0//0 100vmax}
+#apps h2::before{background:#FFD23F}#stickers h2::before{background:#3DDC97}#follow h2::before{background:#FF6B6B}
+footer{padding-top:20px}
+
 [data-en]{display:none}
 html[lang="en"] [data-ja]{display:none}
 html[lang="en"] [data-en]{display:revert}
