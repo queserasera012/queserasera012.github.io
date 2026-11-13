@@ -145,6 +145,56 @@ html .btn:not(.ghost):not(.soon){background:var(--sky);color:var(--navy);border-
 footer{padding-block:48px 40px;color:var(--sub);font-size:12px;text-align:center}
 footer .links{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;margin-bottom:10px}
 
+/* ===== 短い版（next） ===== */
+.hero-in{padding-block:26px 24px}
+.hero h1{font-size:clamp(40px,9vw,72px)}
+.hero .desc{display:none}
+@media (max-width:620px){.hero-in{grid-template-columns:auto 1fr;text-align:left;gap:12px;padding-block:20px 22px}.sera{order:0;width:96px;margin:0;grid-row:1}.hero-in>div:first-child{grid-column:2}.hero h1{font-size:40px}.hero .catch{font-size:17px;margin-top:6px}.icons{justify-content:flex-start;grid-column:1/-1}.hero-in>div:first-child .icons{margin-top:14px}}
+.sec{padding-block:28px 4px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 10px}
+.chips button{font:inherit;font-weight:700;font-size:14px;padding:6px 14px;border-radius:999px;border:2.5px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--sky);color:var(--navy);border-color:var(--navy)}
+.kidsnote{margin:0 0 12px;font-size:13px}
+.grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:760px){.grid{grid-template-columns:1fr 1fr;align-items:start}.app.open{grid-column:1/-1}}
+.app{padding:14px;margin:0;border-radius:20px}
+.app-head{gap:12px;align-items:center}
+.app-head img{width:60px;height:60px;border-radius:14px}
+.app-head h3{font-size:17px}
+.h3sub{font-size:12px}
+.one{margin:2px 0 0;font-size:13px;color:var(--sub);font-weight:700;line-height:1.5}
+.app .tags{display:none}
+.app.open .tags{display:flex}
+.app .actions{margin-top:10px;gap:8px}
+.app .btn{padding:8px 14px;font-size:13px}
+.app{position:relative}
+.app-head{padding-right:40px;cursor:pointer}
+.app .more-btn{position:absolute;top:12px;right:12px;width:36px;height:36px;padding:0;justify-content:center;border-radius:50%}
+.more-btn>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.more-btn::after{content:"▾";font-size:16px;line-height:1;transition:transform .2s}
+.grid>*{min-width:0}
+.app.open .more-btn::after{transform:rotate(180deg)}
+.more{margin-top:4px}
+.app[hidden]{display:none}
+.stickers{display:flex;overflow-x:auto;gap:10px;scroll-snap-type:x mandatory;margin:0 -16px;padding:4px 16px 10px}
+.st{flex:none;width:132px;scroll-snap-align:start;padding:10px}
+.st b{font-size:12px}
+.follow{grid-template-columns:repeat(4,1fr);gap:8px}
+.card{flex-direction:column;gap:6px;padding:12px 6px;text-align:center}
+.card .ic{width:40px;height:40px}
+.card b{font-size:14px}
+.card div>span{display:none!important}
+#follow .lead{font-size:13px}
+
+/* 区切りごとの帯の色 */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sec{--tp:13%;--tb:var(--bg)}}
+:root[data-theme="dark"] .sec{--tp:13%;--tb:var(--bg)}
+#apps{--band:#FFD23F}#stickers{--band:#3DDC97}#follow{--band:#FF6B6B}
+.sec{--tint:color-mix(in srgb,var(--band) var(--tp,22%),var(--tb,#fff));border-image:conic-gradient(var(--tint) 0 0) fill 0//0 100vmax;padding-block:28px 32px;position:relative}
+.sec+.sec{border-image:linear-gradient(var(--navy) 0 3px,var(--tint) 3px) fill 0//0 100vmax}
+#apps h2::before{background:#FFD23F}#stickers h2::before{background:#3DDC97}#follow h2::before{background:#FF6B6B}
+footer{padding-top:20px}
+
 [data-en]{display:none}
 html[lang="en"] [data-ja]{display:none}
 html[lang="en"] [data-en]{display:revert}
@@ -198,148 +248,175 @@ html[lang="en"] [data-en]{display:revert}
 </section>
 
 <section class="sec wrap" id="apps">
-  <h2><span data-ja>こどもと遊ぶアプリ</span><span data-en>Apps for kids</span></h2>
-  <p class="lead" data-ja>ようちえん〜小学生向け。広告なし・データの収集なし。</p>
-  <p class="lead" data-en>For ages about 4–12. No ads, no data collected.</p>
-
-  <article class="app" id="manabi" style="--c:#3e9a5b">
+  <h2><span data-ja>アプリ</span><span data-en>Apps</span></h2>
+  <div class="chips" role="tablist">
+    <button type="button" data-f="all" aria-pressed="true"><span data-ja>すべて</span><span data-en>All</span></button>
+    <button type="button" data-f="kids" aria-pressed="false"><span data-ja>こどもと</span><span data-en>For kids</span></button>
+    <button type="button" data-f="game" aria-pressed="false"><span data-ja>ゲーム</span><span data-en>Games</span></button>
+    <button type="button" data-f="adult" aria-pressed="false"><span data-ja>おとな</span><span data-en>Grown-ups</span></button>
+  </div>
+  <p class="lead kidsnote" data-ja>こどもと遊ぶアプリは 広告なし・データの収集なし。</p><p class="lead kidsnote" data-en>Kids apps: no ads, no data collected.</p>
+  <div class="grid">
+  <article class="app" data-group="kids" id="manabi" style="--c:#3e9a5b">
     <div class="app-head">
       <img src="img/manabi-icon.png" alt="" width="76" height="76">
       <div>
         <h3><span data-ja>まなびクエスト</span><span data-en>Manabi Quest</span><span data-en class="h3sub">まなびクエスト</span></h3>
+        <p class="one" data-ja>9つの教科を、まいにち5分の ぼうけんに</p><p class="one" data-en>9 subjects in a 5-minute daily quest</p>
         <div class="tags"><span class="tag hot">iPhone / iPad</span><span class="tag" data-ja>ようちえん〜小6</span><span class="tag" data-en>K – Grade 6</span><span class="tag" data-en>Japanese language</span><span class="tag" data-en>Japan App Store only</span></div>
       </div>
     </div>
+    <div class="actions">
+      <a class="btn" href="https://apps.apple.com/jp/app/id6820847242?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span data-ja>App Store で見る</span><span data-en>App Store (Japan)</span></a>
+      <button type="button" class="btn ghost more-btn" aria-expanded="false"><span data-ja>くわしく</span><span data-en>More</span></button>
+    </div>
+    <div class="more" hidden>
     <p class="desc" data-ja>ひらがな・かず・漢字・算数・英語・理科など 9つの教科を、まいにち5分の「ぼうけん」に。最初の問題で実力をたしかめて、その子にちょうどいいレベルから始まります。</p>
     <p class="desc" data-en>Nine subjects — hiragana, numbers, kanji, math, English, science and more — turned into a 5-minute daily quest. It starts at the level that fits your child.</p><p class="note" data-en style="margin:6px 0 0">This app is in Japanese and available on the Japan App Store only. Screenshots are in Japanese.</p>
     <div class="shots">
       <img loading="lazy" src="img/manabi-ja-1.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/manabi-ja-2.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/manabi-ja-3.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/manabi-ja-4.jpg" alt="" width="480" height="1042">
     </div>
-    <div class="actions">
-      <a class="btn" href="https://apps.apple.com/jp/app/id6820847242?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span data-ja>App Store で見る</span><span data-en>App Store (Japan)</span></a>
     </div>
   </article>
 
-  <article class="app" id="karakuri" style="--c:#e8743b">
+  <article class="app" data-group="kids" id="karakuri" style="--c:#e8743b">
     <div class="app-head">
       <img src="img/karakuri-icon.png" alt="" width="76" height="76">
       <div>
         <h3><span data-ja>モコのからくり工房</span><span data-en>Moco's Workshop: Coding Puzzle</span></h3>
+        <p class="one" data-ja>ブロックを ならべて動かす、はじめてのプログラミング</p><p class="one" data-en>Arrow-block coding puzzles for kids</p>
         <div class="tags"><span class="tag hot">iPhone / iPad</span><span class="tag" data-ja>プログラミングの入口</span><span class="tag" data-en>First steps in coding</span><span class="tag" data-ja>日本語 / English</span><span class="tag" data-en>English / 日本語</span></div>
       </div>
     </div>
+    <div class="actions">
+      <a class="btn" href="https://apps.apple.com/jp/app/id6812403692?pt=129460223&ct=lp&mt=8" data-href-en="https://apps.apple.com/us/app/id6812403692?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>App Store で見る</span><span data-en>View on the App Store</span></a>
+      <button type="button" class="btn ghost more-btn" aria-expanded="false"><span data-ja>くわしく</span><span data-en>More</span></button>
+    </div>
+    <div class="more" hidden>
     <p class="desc" data-ja>やじるしのブロックをならべて、ロボットの「モコ」をたからばこまで運ぶパズル。「くりかえし」「もし」「わざ」を、ことばを覚えなくても手で覚えられます。全64面、はじめの12面は無料。</p>
     <p class="desc" data-en>Line up arrow blocks to guide Moco the robot to the treasure chest. Kids pick up loops, conditions and functions with their hands, no jargon needed. 64 stages — the first 12 are free.</p>
     <div class="shots">
       <img loading="lazy" src="img/karakuri-ja-1.jpg" data-src-en="img/karakuri-en-1.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/karakuri-ja-2.jpg" data-src-en="img/karakuri-en-2.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/karakuri-ja-3.jpg" data-src-en="img/karakuri-en-3.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/karakuri-ja-4.jpg" data-src-en="img/karakuri-en-4.jpg" alt="" width="480" height="1042">
     </div>
-    <div class="actions">
-      <a class="btn" href="https://apps.apple.com/jp/app/id6812403692?pt=129460223&ct=lp&mt=8" data-href-en="https://apps.apple.com/us/app/id6812403692?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>App Store で見る</span><span data-en>View on the App Store</span></a>
     </div>
   </article>
-</section>
-
-<section class="sec wrap">
-  <h2><span data-ja>だれでも遊べるゲーム</span><span data-en>Games for everyone</span></h2>
-  <p class="lead" data-ja>すきま時間に、のんびり。</p>
-  <p class="lead" data-en>Cozy games for a few spare minutes.</p>
-
-  <article class="app" id="tiny" style="--c:#4a8fb8">
+  <article class="app" data-group="game" id="tiny" style="--c:#4a8fb8">
     <div class="app-head">
       <img src="img/tiny-icon.png" alt="" width="76" height="76">
       <div>
         <h3>Tiny Island Life<span data-ja class="h3sub">小さな島の暮らし</span></h3>
+        <p class="one" data-ja>島の暮らしを眺めて、建てる場所を考える</p><p class="one" data-en>Watch a tiny island live, and decide where to build</p>
         <div class="tags"><span class="tag hot">iPhone / iPad</span><span class="tag" data-ja>ながめるシミュレーション</span><span class="tag" data-en>Cozy life sim</span><span class="tag" data-ja>日本語 / English</span><span class="tag" data-en>English / 日本語</span></div>
       </div>
     </div>
+    <div class="actions">
+      <a class="btn" href="https://apps.apple.com/jp/app/id6816120839?pt=129460223&ct=lp&mt=8" data-href-en="https://apps.apple.com/us/app/id6816120839?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>App Store で見る</span><span data-en>View on the App Store</span></a>
+      <button type="button" class="btn ghost more-btn" aria-expanded="false"><span data-ja>くわしく</span><span data-en>More</span></button>
+    </div>
+    <div class="more" hidden>
     <p class="desc" data-ja>小さな島で、住民たちの暮らしを眺めるゲーム。朝はコーヒーを買って出勤、昼はカフェでランチ、夕方は公園でひと休み。行列ができたら、どこに何を建てるかを島の上で考えます。答えは画面に出ません。</p>
     <p class="desc" data-en>Watch the residents of a tiny island live their days — coffee before work, lunch at the café, a rest in the park. When a line forms, it's up to you to figure out where to build next. The game never tells you the answer.</p>
     <div class="shots">
       <div class="vid"><video src="https://queserasera012.github.io/images/marketing/tiny/tiny-short-ja.mp4" data-src-en="https://queserasera012.github.io/images/marketing/tiny/tiny-short-en.mp4" data-poster-en="https://queserasera012.github.io/images/marketing/tiny/cover-en.jpg" poster="https://queserasera012.github.io/images/marketing/tiny/cover-ja.jpg" muted loop playsinline preload="none" controls></video><span data-ja>動画</span><span data-en>Video</span></div>
       <img loading="lazy" src="img/tiny-ja-1.jpg" data-src-en="img/tiny-en-1.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/tiny-ja-2.jpg" data-src-en="img/tiny-en-2.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/tiny-ja-3.jpg" data-src-en="img/tiny-en-3.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/tiny-ja-4.jpg" data-src-en="img/tiny-en-4.jpg" alt="" width="480" height="1042">
     </div>
-    <div class="actions">
-      <a class="btn" href="https://apps.apple.com/jp/app/id6816120839?pt=129460223&ct=lp&mt=8" data-href-en="https://apps.apple.com/us/app/id6816120839?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>App Store で見る</span><span data-en>View on the App Store</span></a>
     </div>
   </article>
 
-  <article class="app" id="bounce" style="--c:#d9558a">
+  <article class="app" data-group="game" id="bounce" style="--c:#d9558a">
     <div class="app-head">
       <img src="img/bounce-icon.png" alt="" width="76" height="76">
       <div>
         <h3>Bounce Pets<span data-ja class="h3sub">ペットとブロック崩し</span><span data-en class="h3sub">Brick Breaker</span></h3>
+        <p class="one" data-ja>ブロック崩しで たまごを集めて、ペットと遊ぶ</p><p class="one" data-en>A brick breaker where you hatch pets</p>
         <div class="tags"><span class="tag hot">iPhone / iPad</span><span class="tag" data-ja>ブロック崩し × ペット集め</span><span class="tag" data-en>Brick breaker × pet collecting</span><span class="tag" data-ja>日本語 / English</span><span class="tag" data-en>English / 日本語</span></div>
       </div>
     </div>
+    <div class="actions">
+      <a class="btn" href="https://apps.apple.com/jp/app/id6813130324?pt=129460223&ct=lp&mt=8" data-href-en="https://apps.apple.com/us/app/id6813130324?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>App Store で見る</span><span data-en>View on the App Store</span></a>
+      <a class="btn ghost" href="https://www.roblox.com/games/136872833400954/Bounce-Pets-Brick-Breaker"><span data-ja>Roblox 版で遊ぶ</span><span data-en>Play on Roblox</span></a>
+      <button type="button" class="btn ghost more-btn" aria-expanded="false"><span data-ja>くわしく</span><span data-en>More</span></button>
+    </div>
+    <div class="more" hidden>
     <p class="desc" data-ja>ボールを打ち返して、ブロックをこわして、落ちてくるたまごをキャッチ。かえったペットは それぞれ力を持っていて、いっしょに遊ぶほど育ちます。20ひきのペット、100ステージ。</p>
     <p class="desc" data-en>Bounce the ball, break the bricks, and catch the eggs that fall. Every pet you hatch has its own power and levels up as you play together. 20 pets, 100 stages.</p>
     <div class="shots">
       <div class="vid"><video src="https://queserasera012.github.io/images/marketing/bounce/bp-ja-nocap.mp4" data-src-en="https://queserasera012.github.io/images/marketing/bounce/bp-en-nocap.mp4" poster="https://queserasera012.github.io/images/marketing/bounce/cover.jpg" muted loop playsinline preload="none" controls></video><span data-ja>動画</span><span data-en>Video</span></div>
       <img loading="lazy" src="img/bounce-ja-1.jpg" data-src-en="img/bounce-en-1.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/bounce-ja-2.jpg" data-src-en="img/bounce-en-2.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/bounce-ja-3.jpg" data-src-en="img/bounce-en-3.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/bounce-ja-4.jpg" data-src-en="img/bounce-en-4.jpg" alt="" width="480" height="1042">
     </div>
-    <div class="actions">
-      <a class="btn" href="https://apps.apple.com/jp/app/id6813130324?pt=129460223&ct=lp&mt=8" data-href-en="https://apps.apple.com/us/app/id6813130324?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>App Store で見る</span><span data-en>View on the App Store</span></a>
-      <a class="btn ghost" href="https://www.roblox.com/games/136872833400954/Bounce-Pets-Brick-Breaker"><span data-ja>Roblox 版で遊ぶ</span><span data-en>Play on Roblox</span></a>
     </div>
   </article>
 
-  <article class="app" id="aruquest" style="--c:#7a5bc4">
+  <article class="app" data-group="game" id="aruquest" style="--c:#7a5bc4">
     <div class="app-head">
       <img src="img/aruquest-icon.png" alt="" width="76" height="76">
       <div>
         <h3><span data-ja>アルクエスト</span><span data-en>AruQuest</span></h3>
+        <p class="one" data-ja>歩いた分だけ仲間が育つ、オートバトルRPG</p><p class="one" data-en>An auto-battle RPG that grows with your steps</p>
         <div class="tags"><span class="tag hot" data-ja>新しく公開</span><span class="tag hot" data-en>New</span><span class="tag">iPhone</span><span class="tag" data-ja>歩いて育てるRPG</span><span class="tag" data-en>Walking RPG</span></div>
       </div>
     </div>
+    <div class="actions">
+      <a class="btn" href="https://apps.apple.com/jp/app/id6822721906?pt=129460223&ct=lp&mt=8" data-href-en="https://apps.apple.com/us/app/id6822721906?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>App Store で見る</span><span data-en>View on the App Store</span></a>
+      <button type="button" class="btn ghost more-btn" aria-expanded="false"><span data-ja>くわしく</span><span data-en>More</span></button>
+    </div>
+    <div class="more" hidden>
     <p class="desc" data-ja>歩いた分だけ仲間が育つ、完全オートのRPG。今日の歩数で連続記録、これまでの歩数で旅が進みます。戦いは見守るだけ。決めるのは出発前の編成です。</p>
     <p class="desc" data-en>An auto-battle RPG where your party grows with every step you take. Today's steps keep your streak; your lifetime steps carry the journey forward. You set the party, then just watch the battle.</p>
     <div class="shots">
       <img loading="lazy" src="img/aruquest-ja-1.jpg" data-src-en="img/aruquest-en-1.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/aruquest-ja-2.jpg" data-src-en="img/aruquest-en-2.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/aruquest-ja-3.jpg" data-src-en="img/aruquest-en-3.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/aruquest-ja-4.jpg" data-src-en="img/aruquest-en-4.jpg" alt="" width="480" height="1042">
     </div>
-    <div class="actions">
-      <a class="btn" href="https://apps.apple.com/jp/app/id6822721906?pt=129460223&ct=lp&mt=8" data-href-en="https://apps.apple.com/us/app/id6822721906?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>App Store で見る</span><span data-en>View on the App Store</span></a>
     </div>
   </article>
-  <article class="app" id="diner" style="--c:#e8862a">
+  <article class="app" data-group="game" id="diner" style="--c:#e8862a">
     <div class="app-head">
       <img src="img/diner-icon.png" alt="" width="76" height="76">
       <div>
         <h3>Diner Street</h3>
+        <p class="one" data-ja>屋台から町いちばんのお店へ。経営シミュレーション</p><p class="one" data-en>From a food stall to the best restaurant in town</p>
         <div class="tags"><span class="tag">iPhone</span><span class="tag">iPad</span><span class="tag" data-ja>お店の経営シミュレーション</span><span class="tag" data-en>Restaurant sim</span></div>
       </div>
     </div>
+    <div class="actions">
+      <a class="btn" href="https://apps.apple.com/jp/app/id6830174958?pt=129460223&ct=lp&mt=8" data-href-en="https://apps.apple.com/us/app/id6830174958?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>App Store で見る</span><span data-en>View on the App Store</span></a>
+      <button type="button" class="btn ghost more-btn" aria-expanded="false"><span data-ja>くわしく</span><span data-en>More</span></button>
+    </div>
+    <div class="more" hidden>
     <p class="desc" data-ja>屋台ひとつから、町いちばんのお店へ。昼は厨房に立って料理を出し、夜は日報を読んでメニュー・値段・仕込み・アルバイトを決めます。中華・バーガー・カフェ・イタリアンと、お店を5つまで広げられます。</p>
     <p class="desc" data-en>Start with a food stall and grow it into the town's favorite restaurant. Cook by day, then read the daily report at night and set the menu, prices, prep and staff. Expand to five shops: Chinese, burgers, a cafe and Italian.</p>
     <div class="shots">
       <img loading="lazy" src="img/diner-ja-1.jpg" data-src-en="img/diner-en-1.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/diner-ja-2.jpg" data-src-en="img/diner-en-2.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/diner-ja-3.jpg" data-src-en="img/diner-en-3.jpg" alt="" width="480" height="1042"><img loading="lazy" src="img/diner-ja-4.jpg" data-src-en="img/diner-en-4.jpg" alt="" width="480" height="1042">
     </div>
-    <div class="actions">
-      <a class="btn" href="https://apps.apple.com/jp/app/id6830174958?pt=129460223&ct=lp&mt=8" data-href-en="https://apps.apple.com/us/app/id6830174958?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>App Store で見る</span><span data-en>View on the App Store</span></a>
     </div>
   </article>
-  <article class="app" id="kanji" style="--c:#c4412a">
+  <article class="app" data-group="adult" id="kanji" style="--c:#c4412a">
     <div class="app-head">
       <img src="img/kanji-icon.png" alt="" width="76" height="76">
       <div>
         <h3>漢字朝刊</h3>
+        <p class="one" data-ja>毎朝5問、大人の漢字の紙面が届く</p><p class="one" data-en>Five kanji questions every morning (Japanese)</p>
         <div class="tags"><span class="tag hot" data-ja>新しく公開</span><span class="tag hot" data-en>New</span><span class="tag">iPhone</span><span class="tag">iPad</span><span class="tag" data-ja>大人の漢字</span><span class="tag" data-en>Japanese kanji · Japan only</span></div>
       </div>
     </div>
+    <div class="actions">
+      <a class="btn" href="https://apps.apple.com/jp/app/id6831881768?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>App Store で見る</span><span data-en>View on the App Store (Japan)</span></a>
+      <button type="button" class="btn ghost more-btn" aria-expanded="false"><span data-ja>くわしく</span><span data-en>More</span></button>
+    </div>
+    <div class="more" hidden>
     <p class="desc" data-ja>毎朝5問、大人のための漢字の紙面が届きます。読み・誤字さがし・四字熟語・同音異義語・熟語クロス。答えのあとに意味と例文が出て、解いた日は今月の紙面に判が押されます。まちがえた ことばは 日をおいて もう一度。</p>
     <p class="desc" data-en>A daily kanji quiz for adults, in Japanese: five questions every morning, matched to your level, with meanings and example sentences. Available in Japan only.</p>
     <div class="shots">
       <img loading="lazy" src="img/kanji-ja-1.jpg" alt="" width="480" height="1043"><img loading="lazy" src="img/kanji-ja-2.jpg" alt="" width="480" height="1043"><img loading="lazy" src="img/kanji-ja-3.jpg" alt="" width="480" height="1043"><img loading="lazy" src="img/kanji-ja-4.jpg" alt="" width="480" height="1043">
     </div>
-    <div class="actions">
-      <a class="btn" href="https://apps.apple.com/jp/app/id6831881768?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>App Store で見る</span><span data-en>View on the App Store (Japan)</span></a>
     </div>
   </article>
+  </div>
 </section>
 
 <section class="sec wrap" id="stickers">
   <h2><span data-ja>LINE スタンプ</span><span data-en>LINE Stickers</span></h2>
-  <p class="lead" data-ja>コーイケルホンディエ、ダックスフンド、ヨーキー、ゴールデン。犬のスタンプを作っています。</p>
-  <p class="lead" data-en>Dog stickers — Kooikerhondje, Dachshund, Yorkie and Golden Retriever.</p>
+  <p class="lead" data-ja>犬のスタンプ、10種類。横にスクロールできます。</p>
+  <p class="lead" data-en>10 dog sticker sets. Swipe to see more.</p>
   <div class="stickers" id="stickerGrid"></div>
   <div class="actions" style="margin-top:16px">
     <a class="btn ghost" href="https://store.line.me/stickershop/author/6578300/ja" data-href-en="https://store.line.me/stickershop/author/6578300/en"><span data-ja>LINE STORE ですべて見る</span><span data-en>See all on LINE STORE</span></a>
@@ -451,6 +528,33 @@ try { saved = localStorage.getItem('qss.lang'); } catch (e) {}
 const q = new URLSearchParams(location.search).get('lang');
 setLang(q || saved || ((navigator.language || 'ja').startsWith('ja') ? 'ja' : 'en'));
 document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+// くわしく：押した札だけ開く
+document.querySelectorAll('.app').forEach(app => {
+  const b = app.querySelector('.more-btn'), m = app.querySelector('.more');
+  app.querySelector('.app-head').addEventListener('click', e => { if (!e.target.closest('a')) b.click(); });
+  b.addEventListener('click', () => {
+    const open = m.hidden;
+    m.hidden = !open; app.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open));
+    if (open) app.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  });
+});
+// 上のアイコン：その札を開いて飛ぶ
+document.querySelectorAll('.icons a').forEach(a => a.addEventListener('click', e => {
+  const app = document.querySelector(a.getAttribute('href'));
+  if (!app) return;
+  e.preventDefault(); setFilter('all');
+  const m = app.querySelector('.more');
+  if (m.hidden) app.querySelector('.more-btn').click();
+  app.scrollIntoView({ block: 'start', behavior: 'smooth' });
+}));
+// しぼりこみ
+function setFilter(f) {
+  document.querySelectorAll('.chips button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.f === f)));
+  document.querySelectorAll('.app').forEach(a => { a.hidden = !(f === 'all' || a.dataset.group === f); });
+  document.querySelectorAll('.kidsnote').forEach(n => n.style.visibility = (f === 'all' || f === 'kids') ? '' : 'hidden');
+}
+document.querySelectorAll('.chips button').forEach(b => b.addEventListener('click', () => setFilter(b.dataset.f)));
 </script>
 </body>
 </html>
