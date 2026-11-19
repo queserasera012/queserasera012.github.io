@@ -165,6 +165,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;ma
 .one{margin:2px 0 0;font-size:13px;color:var(--sub);font-weight:700;line-height:1.5}
 .app .tags{display:none}
 .app.open .tags{display:flex}
+.app:not(.open) .tags:has(.new){display:flex;margin-top:4px}.app:not(.open) .tags .tag:not(.new){display:none}
 .app .actions{margin-top:10px;gap:8px}
 .app .btn{padding:8px 14px;font-size:13px}
 .app{position:relative}
@@ -236,6 +237,7 @@ html[lang="en"] [data-en]{display:revert}
     <div class="icons">
       <a href="#manabi" aria-label="まなびクエスト / Manabi Quest"><img src="img/manabi-icon.png" alt="" width="64" height="64"></a>
       <a href="#karakuri" aria-label="モコのからくり工房"><img src="img/karakuri-icon.png" alt="" width="64" height="64"></a>
+      <a href="#basket" aria-label="ピタッとバスケ"><img src="img/basket-icon.png" alt="" width="64" height="64"></a>
       <a href="#tiny" aria-label="Tiny Island Life"><img src="img/tiny-icon.png" alt="" width="64" height="64"></a>
       <a href="#bounce" aria-label="Bounce Pets"><img src="img/bounce-icon.png" alt="" width="64" height="64"></a>
       <a href="#aruquest" aria-label="アルクエスト"><img src="img/aruquest-icon.png" alt="" width="64" height="64"></a>
@@ -300,6 +302,28 @@ html[lang="en"] [data-en]{display:revert}
     </div>
     </div>
   </article>
+  <article class="app" data-group="kids" id="basket" style="--c:#e8743b">
+    <div class="app-head">
+      <img src="img/basket-icon.png" alt="" width="76" height="76">
+      <div>
+        <h3><span data-ja>ピタッとバスケ</span><span data-en>Pitatto Basket</span><span data-en class="h3sub">ピタッとバスケ</span></h3>
+        <p class="one" data-ja>時間が止まって「次の一手」をえらぶ、ミニバスの判断力トレーニング</p><p class="one" data-en>Mini-basketball decision training: time freezes, you pick the next play</p>
+        <div class="tags"><span class="tag hot new" data-ja>新しく公開</span><span class="tag hot new" data-en>New</span><span class="tag">iPhone / iPad</span><span class="tag" data-ja>ミニバスの子に</span><span class="tag" data-en>For youth basketball players</span><span class="tag" data-en>Japanese language</span><span class="tag" data-en>Japan App Store only</span></div>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn" href="https://apps.apple.com/jp/app/id6835275098?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>App Store で見る</span><span data-en>App Store (Japan)</span></a>
+      <button type="button" class="btn ghost more-btn" aria-expanded="false"><span data-ja>くわしく</span><span data-en>More</span></button>
+    </div>
+    <div class="more" hidden>
+    <p class="desc" data-ja>試合の途中で、時間が「ピタッ！」と止まります。上からコートを見て、パス・シュート・ドリブルや守りの立ち位置をえらぶと、なぜいい手かを ひとことで教えてくれます。ミニバスのルール（3点シュートなし・マンツーマン）に合わせています。広告なし・買い切り1つだけ。</p>
+    <p class="desc" data-en>Mid-game, time freezes. Look down at the court, pick a pass, shot, dribble or defensive spot, and get a one-line reason why it works. Built on Japanese mini-basketball rules (no 3-pointers, man-to-man only). No ads, one optional one-time purchase.</p><p class="note" data-en style="margin:6px 0 0">This app is in Japanese and available on the Japan App Store only. Screenshots are in Japanese.</p>
+    <div class="shots">
+      <img loading="lazy" src="img/basket-ja-1.jpg" alt="" width="480" height="1043"><img loading="lazy" src="img/basket-ja-2.jpg" alt="" width="480" height="1043"><img loading="lazy" src="img/basket-ja-3.jpg" alt="" width="480" height="1043"><img loading="lazy" src="img/basket-ja-4.jpg" alt="" width="480" height="1043">
+    </div>
+    </div>
+  </article>
+
   <article class="app" data-group="game" id="tiny" style="--c:#4a8fb8">
     <div class="app-head">
       <img src="img/tiny-icon.png" alt="" width="76" height="76">
@@ -353,7 +377,7 @@ html[lang="en"] [data-en]{display:revert}
       <div>
         <h3><span data-ja>アルクエスト</span><span data-en>AruQuest</span></h3>
         <p class="one" data-ja>歩いた分だけ仲間が育つ、オートバトルRPG</p><p class="one" data-en>An auto-battle RPG that grows with your steps</p>
-        <div class="tags"><span class="tag hot" data-ja>新しく公開</span><span class="tag hot" data-en>New</span><span class="tag">iPhone</span><span class="tag" data-ja>歩いて育てるRPG</span><span class="tag" data-en>Walking RPG</span></div>
+        <div class="tags"><span class="tag">iPhone</span><span class="tag" data-ja>歩いて育てるRPG</span><span class="tag" data-en>Walking RPG</span></div>
       </div>
     </div>
     <div class="actions">
@@ -395,7 +419,7 @@ html[lang="en"] [data-en]{display:revert}
       <div>
         <h3>漢字朝刊</h3>
         <p class="one" data-ja>毎朝5問、大人の漢字の紙面が届く</p><p class="one" data-en>Five kanji questions every morning (Japanese)</p>
-        <div class="tags"><span class="tag hot" data-ja>新しく公開</span><span class="tag hot" data-en>New</span><span class="tag">iPhone</span><span class="tag">iPad</span><span class="tag" data-ja>大人の漢字</span><span class="tag" data-en>Japanese kanji · Japan only</span></div>
+        <div class="tags"><span class="tag">iPhone</span><span class="tag">iPad</span><span class="tag" data-ja>大人の漢字</span><span class="tag" data-en>Japanese kanji · Japan only</span></div>
       </div>
     </div>
     <div class="actions">
@@ -440,6 +464,7 @@ html[lang="en"] [data-en]{display:revert}
   <div class="actions">
     <a href="https://queserasera012.github.io/images/manabi/privacy.html"><span data-ja>まなびクエスト</span><span data-en>Manabi Quest</span> Privacy</a>
     <a href="https://queserasera012.github.io/images/karakuri/privacy.html"><span data-ja>からくり工房</span><span data-en>Moco's Workshop</span> Privacy</a>
+    <a href="https://queserasera012.github.io/images/pitatto-basket/privacy.html"><span data-ja>ピタッとバスケ</span><span data-en>Pitatto Basket</span> Privacy</a>
     <a href="https://queserasera012.github.io/images/tiny-island-life/privacy.html">Tiny Island Life Privacy</a>
     <a href="https://queserasera012.github.io/images/bounce-pets/privacy.html">Bounce Pets Privacy</a>
     <a href="https://queserasera012.github.io/images/aruquest/privacy.html"><span data-ja>アルクエスト</span><span data-en>AruQuest</span> Privacy</a>
