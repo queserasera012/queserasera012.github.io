@@ -597,6 +597,18 @@ document.querySelectorAll('.icons a').forEach(a => a.addEventListener('click', e
   if (m.hidden) app.querySelector('.more-btn').click();
   app.scrollIntoView({ block: 'start', behavior: 'smooth' });
 }));
+// ?app=basket（または #basket）で来たら、その札を開いて飛ぶ（SNS の投稿に貼るリンク）
+(function () {
+  const key = (new URLSearchParams(location.search).get('app') || location.hash.slice(1) || '').toLowerCase();
+  const app = key && document.getElementById(key);
+  if (!app || !app.classList.contains('app')) return;
+  setFilter('all');
+  const m = app.querySelector('.more');
+  if (m.hidden) app.querySelector('.more-btn').click();
+  const go = () => app.scrollIntoView({ block: 'start' });
+  go(); window.addEventListener('load', go, { once: true });
+  if (typeof gtag === 'function') gtag('event', 'app_link', { app: key });
+})();
 // しぼりこみ
 function setFilter(f) {
   document.querySelectorAll('.chips button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.f === f)));

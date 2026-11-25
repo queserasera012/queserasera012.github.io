@@ -34,3 +34,8 @@
 - 表示は日本語と英語（`data-ja` / `data-en`）。片方だけ足さない
 - 見た目はセラ（空色 #4FB8E8・紺 #1F2A44・黄 #FFD23F・緑 #3DDC97・赤 #FF6B6B・Zen Maru Gothic）
 - しんめ工房とは名乗らない
+
+## アプリごとのリンク（SNS に貼る）
+
+`https://queserasera012.github.io/?app=<key>&from=<x|ig|tt|th|note>` で、その札が開いた状態で出る（`#<key>` も同じ）。GA に `app_link` が送られる。
+key は札の id：manabi / karakuri / sansu3 / basket / tiny / bounce / aruquest / diner / kanji（足したら ここにも足す）
