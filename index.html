@@ -102,6 +102,7 @@ img{display:block;max-width:100%}
 .app{background:var(--paper);border:3px solid var(--line);border-radius:24px;padding:20px;margin-bottom:20px;box-shadow:var(--shadow);--c:var(--accent)}
 .app-head{display:flex;gap:16px;align-items:flex-start}
 .app-head img{width:76px;height:76px;border-radius:18px;flex:none;border:2px solid var(--line)}
+.quad{width:76px;height:76px;flex:none;display:grid;grid-template-columns:36px 36px;grid-auto-rows:36px;gap:4px}.app-head .quad img{width:36px;height:36px;border-radius:9px;border:1.5px solid var(--line);box-sizing:border-box}
 .app-head h3{margin:0;font-size:21px;font-weight:900;line-height:1.35}
 .h3sub{font-size:14px;color:var(--sub);font-weight:700}
 html[lang="ja"] .h3sub[data-ja],html[lang="en"] .h3sub[data-en]{display:block}
@@ -244,6 +245,7 @@ html[lang="en"] [data-en]{display:revert}
       <a href="#bounce" aria-label="Bounce Pets"><img src="img/bounce-icon.png" alt="" width="64" height="64"></a>
       <a href="#aruquest" aria-label="アルクエスト"><img src="img/aruquest-icon.png" alt="" width="64" height="64"></a>
       <a href="#diner" aria-label="Diner Street"><img src="img/diner-icon.png" alt="" width="64" height="64"></a>
+      <a href="#gokaku" aria-label="互角シリーズ / Gokaku"><img src="img/gokaku-shogi-icon.png" alt="" width="64" height="64"></a>
       <a href="#kanji" aria-label="漢字朝刊"><img src="img/kanji-icon.png" alt="" width="64" height="64"></a>
     </div>
     </div>
@@ -459,6 +461,27 @@ html[lang="en"] [data-en]{display:revert}
     </div>
     </div>
   </article>
+  <article class="app" data-group="game" id="gokaku" style="--c:#8a5a32">
+    <div class="app-head">
+      <div class="quad" aria-hidden="true"><img src="img/gokaku-reversi-icon.png" alt="" width="36" height="36"><img src="img/gokaku-gomoku-icon.png" alt="" width="36" height="36"><img src="img/gokaku-shogi-icon.png" alt="" width="36" height="36"><img src="img/gokaku-chess-icon.png" alt="" width="36" height="36"></div>
+      <div>
+        <h3 data-ja>互角シリーズ</h3><h3 data-en>Gokaku series</h3>
+        <p class="one" data-ja>最後まで いい勝負に なる CPU。リバーシ・五目並べ・将棋・チェスの 4本</p><p class="one" data-en>A CPU that keeps every game close. Reversi, Gomoku, Shogi and Chess</p>
+        <div class="tags"><span class="tag hot new" data-ja>新しく公開</span><span class="tag hot new" data-en>New</span><span class="tag">iPhone / iPad</span><span class="tag" data-ja>ボードゲーム</span><span class="tag" data-en>Board games</span><span class="tag" data-ja>日本語 / English</span><span class="tag" data-en>English / 日本語</span></div>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn" href="https://apps.apple.com/jp/app/id6838316027?pt=129460223&ct=lp&mt=8" data-href-en="https://apps.apple.com/us/app/id6838316027?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>リバーシ</span><span data-en>Reversi</span></a><a class="btn" href="https://apps.apple.com/jp/app/id6838317671?pt=129460223&ct=lp&mt=8" data-href-en="https://apps.apple.com/us/app/id6838317671?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>五目並べ</span><span data-en>Gomoku</span></a><a class="btn" href="https://apps.apple.com/jp/app/id6838323979?pt=129460223&ct=lp&mt=8" data-href-en="https://apps.apple.com/us/app/id6838323979?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>将棋</span><span data-en>Shogi</span></a><a class="btn" href="https://apps.apple.com/jp/app/id6838324857?pt=129460223&ct=lp&mt=8" data-href-en="https://apps.apple.com/us/app/id6838324857?pt=129460223&ct=lp&mt=8"><svg viewBox="0 0 24 24"><use href="#apple"/></svg><span data-ja>チェス</span><span data-en>Chess</span></a>
+      <button type="button" class="btn ghost more-btn" aria-expanded="false"><span data-ja>くわしく</span><span data-en>More</span></button>
+    </div>
+    <div class="more" hidden>
+    <p class="desc" data-ja>あいての CPU が きみに 合わせて 手かげんし、最後まで 勝ち負けが わからない 勝負に します。さした 手には ◎○△ が 付き、対局の あとは ふりかえりで「次に いしきすること」が 1つ 出ます。4本は それぞれ 別の アプリです。</p>
+    <p class="desc" data-en>The CPU adjusts to you so the game stays close to the very end. Each move gets a mark, and after the game a short review gives you one thing to focus on next time. Each game is a separate app.</p>
+    <div class="shots">
+      <img loading="lazy" src="img/gokaku-reversi-ja-1.jpg" data-src-en="img/gokaku-reversi-en-1.jpg" alt="" width="480" height="1043"><img loading="lazy" src="img/gokaku-gomoku-ja-1.jpg" data-src-en="img/gokaku-gomoku-en-1.jpg" alt="" width="480" height="1043"><img loading="lazy" src="img/gokaku-shogi-ja-1.jpg" data-src-en="img/gokaku-shogi-en-1.jpg" alt="" width="480" height="1043"><img loading="lazy" src="img/gokaku-chess-ja-1.jpg" data-src-en="img/gokaku-chess-en-1.jpg" alt="" width="480" height="1043">
+    </div>
+    </div>
+  </article>
   <article class="app" data-group="adult" id="kanji" style="--c:#c4412a">
     <div class="app-head">
       <img src="img/kanji-icon.png" alt="" width="76" height="76">
@@ -515,6 +538,7 @@ html[lang="en"] [data-en]{display:revert}
     <a href="https://queserasera012.github.io/images/pitatto-basket/privacy.html"><span data-ja>ピタッとバスケ</span><span data-en>Pitatto Basket</span> Privacy</a>
     <a href="https://queserasera012.github.io/images/tiny-island-life/privacy.html">Tiny Island Life Privacy</a>
     <a href="https://queserasera012.github.io/images/bounce-pets/privacy.html">Bounce Pets Privacy</a>
+    <a href="https://queserasera012.github.io/images/gokaku/privacy.html"><span data-ja>互角シリーズ</span><span data-en>Gokaku</span> Privacy</a>
     <a href="https://queserasera012.github.io/images/aruquest/privacy.html"><span data-ja>アルクエスト</span><span data-en>AruQuest</span> Privacy</a>
     <a href="https://queserasera012.github.io/images/diner/privacy.html">Diner Street Privacy</a>
     <a href="https://queserasera012.github.io/images/kanji/privacy.html"><span data-ja>漢字朝刊</span><span data-en>Kanji Chokan</span> Privacy</a>

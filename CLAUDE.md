@@ -38,4 +38,9 @@
 ## アプリごとのリンク（SNS に貼る）
 
 `https://queserasera012.github.io/?app=<key>&from=<x|ig|tt|th|note>` で、その札が開いた状態で出る（`#<key>` も同じ）。GA に `app_link` が送られる。
-key は札の id：kirigami / manabi / karakuri / sansu3 / basket / tiny / bounce / aruquest / diner / kanji（足したら ここにも足す）
+key は札の id：kirigami / manabi / karakuri / sansu3 / basket / tiny / bounce / aruquest / diner / gokaku / kanji（足したら ここにも足す）
+
+### シリーズは 1枚の札にまとめる（2026-11-26）
+
+互角シリーズ（リバーシ・五目並べ・将棋・チェス）は 4本だが 札は `gokaku` の1枚。アイコンは 2×2（`.quad`）、App Store ボタンを ゲームごとに並べる。
+本数の目安（上の表）は 札の数で数える。同じ作りのシリーズが増えたら 同じ形にする。
