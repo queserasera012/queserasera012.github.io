@@ -38,4 +38,4 @@
 ## アプリごとのリンク（SNS に貼る）
 
 `https://queserasera012.github.io/?app=<key>&from=<x|ig|tt|th|note>` で、その札が開いた状態で出る（`#<key>` も同じ）。GA に `app_link` が送られる。
-key は札の id：manabi / karakuri / sansu3 / basket / tiny / bounce / aruquest / diner / kanji（足したら ここにも足す）
+key は札の id：kirigami / manabi / karakuri / sansu3 / basket / tiny / bounce / aruquest / diner / kanji（足したら ここにも足す）
